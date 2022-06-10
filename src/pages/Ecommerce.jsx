@@ -8,6 +8,7 @@ import { earningData, medicalproBranding, recentTransactions, weeklyStats, dropd
 import { useStateContext } from '../context/contextProvider';
 import product9 from '../data/product9.jpg'; 
 const Ecommerce = () => {
+  const { currentColor } = useStateContext()
   return (
     <div className='mt-12'>
       <div className="flex flex-wrap lg:flex-nowrap justify-center">
@@ -19,14 +20,14 @@ const Ecommerce = () => {
             </div>
             <button
               type="button"
-              style={{ backgroundColor: 'red' }}
+              style={{ backgroundColor: currentColor }}
               className="text-2xl opacity-0.9 text-white hover:drop-shadow-xl rounded-full  p-4"
             >
               <BsCurrencyDollar />
             </button>
           </div>
           <div className="mt-6">
-            <Button color="white" backgroundColor='red' text="Download" borderRadius="10px" size="md" />
+            <Button color="white" backgroundColor={currentColor} text="Download" borderRadius="10px" size="md" />
           </div>
         </div>
         <div className="flex m-3 flex-wrap justify-center gap-1 items-center">
@@ -87,7 +88,7 @@ const Ecommerce = () => {
               <div className="mt-10">
                 <Button
                   color="white"
-                  backgroundColor={'red'}
+                  backgroundColor={currentColor}
                   text="Download Report"
                   borderRadius="10px"
                 />

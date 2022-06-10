@@ -11,7 +11,7 @@ import { useStateContext } from '../context/contextProvider'
 import { links } from '../data/dummy';
 console.log(links);
 const Sidebar = () => {
-  const { activeMenu, setActiveMenu, screenSize } = useStateContext();
+  const { activeMenu, setActiveMenu, screenSize, currentColor } = useStateContext();
   const activeLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg  text-white text-md m-2 duration-300 bg-green-300';
   const normalLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2 duration-300';
   
@@ -35,7 +35,7 @@ const Sidebar = () => {
               <button 
                 type='button'
                 onClick={()=>{setActiveMenu((prevActiveMenu)=>!prevActiveMenu)}} 
-                style={{color: 'blue'}} 
+                style={{color: currentColor}} 
                 className='text-xl rounded-full p-3 hover:bg-light-gray mt-4 block md:hidden'
               
               >
@@ -53,7 +53,7 @@ const Sidebar = () => {
                   onClick={()=>handleCloseSideBar()}
                   key={link.name}
                   style={({isActive})=>(
-                    {backgroundColor: isActive?'':'',}
+                    {backgroundColor: isActive?currentColor:'',}
                   )}
                   className={({isActive})=>isActive?activeLink:normalLink}
                   >
